@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Weather</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body>
+        
+       <div id="weather"></div>
+		<button class="js-geolocation"  style="display: none;">Use Your Location</button>
+
+        <div id="joke"></div>
+
+
+			<script>
+			if (typeof(Storage) !== undefined) {
+			    var myFact = new Array();
+			    myFact[0] = "My cat is cold";
+			    myFact[1] = "It's cold as shit tonight and Sunday";
+			    myFact[2] = "It's sunday and cold. You don't want to work tomorrow. Jaggerbombs?";
+			    myFact[3] = "Orange is my favorite color";
+			    //var myRandom = Math.floor(Math.random()*myFact.length);
+			    if (!localStorage.factIndex) {
+			        localStorage.factIndex = 0;
+			    } else {
+			        localStorage.factIndex = (localStorage.factIndex >= (myFact.length-1)) ? 0: parseInt(localStorage.factIndex)+1;
+			    }
+			    document.getElementById('joke').innerHTML = myFact[localStorage.factIndex];
+			} else {
+			    //LocalStorage not supported with this browser
+			}
+			</script>
+
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+
+          <script src="script.js"></script>
+    </body>
+</html>
